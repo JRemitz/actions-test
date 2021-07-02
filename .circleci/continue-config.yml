@@ -17,7 +17,7 @@ workflows:
         default: false
     # Run the welcome/run job in its own container
     when:
-      equal: [ true, test1 ]
+      equal: [ true, << test1 >> ]
     jobs:
       - test1
   welcome2:
