@@ -18,7 +18,9 @@ workflows:
       - test1
   welcome2:
     when:
-      equal: [ true, $CI_PULL_REQUEST ]
+      and:
+        - equal: [ true, << pipeline.parameters.test1 >> ]
+          #- equal: [ true, $CI_PULL_REQUEST ]
     jobs:
       - test2
 
@@ -36,4 +38,4 @@ jobs:
     steps:
       - run:
           name: test2
-          command: echo "test2"
+          command: echo "test2 ${CI_PULL_REQUEST}"
