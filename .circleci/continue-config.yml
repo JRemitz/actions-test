@@ -29,11 +29,15 @@ workflows:
 
 jobs:
   test1:
+    docker:
+     - image: alpine
     steps:
       - run:
           name: test1
           command: echo "test1"
   test2:
+    docker:
+     - image: alpine
     steps:
       - run:
           name: test2
