@@ -2,15 +2,6 @@ version: '2.1'
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
-parameters:
-  test1:
-    description: test1
-    type: boolean
-    default: false
-  test2:
-    description: test2
-    type: boolean
-    default: false
 workflows:
   # Name the workflow "welcome"
   welcome1:
@@ -23,7 +14,7 @@ workflows:
     when:
       equal: [ test1, true ]
     jobs:
-      - welcome/run
+      - test1
   welcome2:
     parameters:
       test2:
@@ -34,4 +25,16 @@ workflows:
     when:
       equal: [ test2, true ]
     jobs:
-      - welcome/run
+      - test2
+
+jobs:
+  test1:
+    steps:
+      - run:
+          name: test1
+          command: echo "test1"
+  test2:
+    steps:
+      - run:
+          name: test2
+          command: echo "test2"
