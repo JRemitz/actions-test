@@ -10,7 +10,7 @@ workflows:
   generate-config:
     jobs:
       - path-filtering/filter:
-          #base-revision: main
+          base-revision: main
           config-path: .circleci/continue-config.yml
           mapping: |
             test1/.* test1 true
