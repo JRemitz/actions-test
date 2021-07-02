@@ -44,6 +44,8 @@ jobs:
      - image: alpine
     steps:
       - build-container
+          parameters:
+            arg1: "it worked!"
       - run:
           name: test1
           command: echo "test1"
@@ -52,6 +54,8 @@ jobs:
      - image: alpine
     steps:
       - build-container
+          parameters:
+            arg1: "it worked!"
       - run:
           name: test2
           command: echo "test2 ${CI_PULL_REQUEST}"
