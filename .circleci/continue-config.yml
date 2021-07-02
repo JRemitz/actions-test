@@ -21,7 +21,7 @@ workflows:
       and:
         - equal: [ true, << pipeline.parameters.test2 >> ]
         - matches:
-            pattern: "(.*)pull(.*)"
+            pattern: "^.*pull.*$"
             value: $CI_PULL_REQUEST
     jobs:
       - test2
