@@ -2,6 +2,15 @@ version: '2.1'
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
+parameters:
+  test1:
+    description: test1
+    type: boolean
+    default: false
+  test2:
+    description: test2
+    type: boolean
+    default: false
 workflows:
   # Name the workflow "welcome"
   welcome1:
