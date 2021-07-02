@@ -15,11 +15,13 @@ workflows:
   # Name the workflow "welcome"
   welcome1:
     # Run the welcome/run job in its own container
-    when: test1
+    when:
+      equal: [ test1, true ]
     jobs:
       - welcome/run
   welcome2:
     # Run the welcome/run job in its own container
-    when: test2
+    when:
+      equal: [ test2, true ]
     jobs:
       - welcome/run
