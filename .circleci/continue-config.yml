@@ -18,9 +18,7 @@ workflows:
       - test1
   welcome2:
     when:
-      or:
-        - equal: [ true, << pipeline.parameters.test2 >> ]
-        - equal: [ true, $CI_PULL_REQUEST ]
+      equal: [ true, $CI_PULL_REQUEST ]
     jobs:
       - test2
 
