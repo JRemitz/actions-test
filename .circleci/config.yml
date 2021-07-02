@@ -14,5 +14,5 @@ workflows:
           #base-revision: main
           config-path: .circleci/continue-config.yml
           mapping: |
-            test1/.* welcome true
-            test2/.* welcome2 true
+            test1/.* welcome
+            test2/.* welcome2
