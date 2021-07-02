@@ -20,7 +20,7 @@ workflows:
     when:
       and:
         - equal: [ true, << pipeline.parameters.test2 >> ]
-          #- equal: [ true, $CI_PULL_REQUEST ]
+        - equal: [ true, $CI_PULL_REQUEST ]
     jobs:
       - test2
 
