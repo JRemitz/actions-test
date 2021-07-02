@@ -10,14 +10,14 @@ parameters:
 workflows:
   # Name the workflow "welcome"
   welcome1:
-    parameters:
-      test1:
-        description: test1
-        type: boolean
-        default: false
+    #  parameters:
+    #  test1:
+    #    description: test1
+    #    type: boolean
+    #    default: false
     # Run the welcome/run job in its own container
     when:
-      equal: [ true, << test1 >> ]
+      equal: [ true, << pipeline.parameters.test1 >> ]
     jobs:
       - test1
   welcome2:
