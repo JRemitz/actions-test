@@ -1,0 +1,25 @@
+version: '2.1'
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+parameters:
+  test1:
+    description: test1
+    type: boolean
+    default: false
+  test2:
+    description: test2
+    type: boolean
+    default: false
+workflows:
+  # Name the workflow "welcome"
+  welcome1:
+    # Run the welcome/run job in its own container
+    when: test1
+    jobs:
+      - welcome/run
+  welcome2:
+    # Run the welcome/run job in its own container
+    when: test2
+    jobs:
+      - welcome/run
