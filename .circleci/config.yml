@@ -3,7 +3,6 @@ version: 2.1
 # Use a package of configuration called an orb.
 orbs:
   # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
   path-filtering: circleci/path-filtering@0.0.2
 setup: true
 # Orchestrate or schedule a set of jobs
@@ -14,5 +13,5 @@ workflows:
           #base-revision: main
           config-path: .circleci/continue-config.yml
           mapping: |
-            test1/.* build-code true
-            test2/.* build-docs true
+            test1/.* test1 true
+            test2/.* test2 true
