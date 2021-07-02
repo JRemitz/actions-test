@@ -10,6 +10,18 @@ parameters:
     description: test2
     type: boolean
     default: false
+commands:
+  build-container:
+    parameters:
+      arg1:
+        description: 'First argument for testing'
+        type: string
+
+    description: 'A parameterized command to build containers'
+    steps:
+      - run:
+          command: |
+            echo << command.parameters.arg1 >>
 workflows:
   welcome1:
     when:
@@ -20,9 +32,9 @@ workflows:
     when:
       and:
         - equal: [ true, << pipeline.parameters.test2 >> ]
-        - matches:
-            pattern: "^.*pull.*$"
-            value: "${CI_PULL_REQUEST}"
+          #- matches:
+          #  pattern: "^.*pull.*$"
+          #  value: "${CI_PULL_REQUEST}"
     jobs:
       - test2
 
@@ -31,6 +43,7 @@ jobs:
     docker:
      - image: alpine
     steps:
+      - build-container
       - run:
           name: test1
           command: echo "test1"
@@ -38,6 +51,7 @@ jobs:
     docker:
      - image: alpine
     steps:
+      - build-container
       - run:
           name: test2
           command: echo "test2 ${CI_PULL_REQUEST}"
