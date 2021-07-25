@@ -8,12 +8,19 @@ on:
 jobs:
   find_container_name:
     runs-on: ubuntu-latest
+    outputs:
+      out1: ${{ steps.output1.outputs.val }}
 
     steps:
       - name: output1
         id: output1
         run: echo "::set-output name=val::output1 value"
 
-      - name: print
+
+  print_val:
+    needs: find_container_name
+
+    steps:
+      - name: print container
         run: |
-          echo ${{ steps.output1.outputs.val }}
+          echo ${{ needs.find_container_name.outputs.out1 }}
