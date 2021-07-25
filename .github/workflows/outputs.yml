@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: output1
         id: output1
-        run: echo "output1-value"
+        run: echo "::set-output name=val::output1 value"
 
       - name: print
         run: |
-          echo ${{ steps.output1.value }}
+          echo ${{ steps.output1.outputs.val }}
