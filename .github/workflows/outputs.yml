@@ -3,7 +3,7 @@ name: Outputs test
 on:
   push:
     branches:
-    - *
+    - "*"
 
 jobs:
   find_container_name:
