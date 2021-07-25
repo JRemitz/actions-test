@@ -1,0 +1,19 @@
+name: Outputs test
+
+on:
+  push:
+    branches:
+    - *
+
+jobs:
+  find_container_name:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: output1
+        id: output1
+        run: echo "output1-value"
+
+      - name: print
+        run: |
+          echo ${{ steps.output1.value }}
